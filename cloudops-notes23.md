@@ -42,7 +42,7 @@ Check repave status:
 ``` # st2 run digitalocean.hms hosts=$SERVER```
 
 Repave server:
-``` # st2 run --async digitalocean.provision hosts=$SERVER hpw_workflow_wait=false release=true```
+``` # st2 run --async digitalocean.provision hosts=$SERVER hpw_workflow_wait=false release=true train=test```
 
 
 ## Sunset
