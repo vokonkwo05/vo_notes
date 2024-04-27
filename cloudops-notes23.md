@@ -113,3 +113,21 @@ Get events:
 Describe pod:
 
 ```kubectl --kubeconfig=kubeconfig-$CLUSTERNAME describe pod -n namespace  pod```
+
+## Droplet migration
+
+When a high_load alert, run coctl in the docker container to see if there is any abuse
+
+Check for abuse:
+```coctl leecher $SERVER```
+
+If there is no abuse, migrate (while ssh'ed in the HV) top 10 CPU usage Droplets using this command:
+```/usr/local/bin/migrate droplet --safe --no-confirm $(ps -aux --sort=-%cpu | grep qemu-system-x86_64 | grep Droplet- | cut -d = -f 2 | cut -d , -f 1 | cut -d - -f 2 | head -n 10 | xargs)```
+
+## More on migration
+
+Migrate all powered down Droplets:
+```/usr/local/bin/migrate droplet $(ls -lsh /var/lib/libvirt/images | grep "root" | grep "raw"  | awk '{print $10}' | cut -d. -f1 | xargs)```
+
+Migrate five of the largest disk images on the HV:
+```/usr/local/bin/migrate droplet $(ls -lsh /var/lib/libvirt/images | sort -nrk1 | grep "raw" | grep -v "config" | head -5 | awk '{print $10}' |cut -d. -f1 | xargs)```
