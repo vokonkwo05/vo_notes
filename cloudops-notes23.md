@@ -131,3 +131,11 @@ Migrate all powered down Droplets:
 
 Migrate five of the largest disk images on the HV:
 ```/usr/local/bin/migrate droplet $(ls -lsh /var/lib/libvirt/images | sort -nrk1 | grep "raw" | grep -v "config" | head -5 | awk '{print $10}' |cut -d. -f1 | xargs)```
+
+### Delete a droplet from a hypervisor
+
+Help page:
+```droplet-admin -h```
+
+Example usage:
+```droplet-admin archive -f -e vokonkwo@digitalocean.com $droplet_id```
