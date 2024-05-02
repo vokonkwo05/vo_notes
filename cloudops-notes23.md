@@ -139,3 +139,17 @@ Help page:
 
 Example usage:
 ```droplet-admin archive -f -e vokonkwo@digitalocean.com $droplet_id```
+
+### Remove a seaworthy droplet caused by a repave attempt
+
+verify droplet is running:
+```sudo virsh list --all```
+
+Destroy droplet:
+```sudo virsh destroy Droplet-<droplet_id>```
+
+Undefine droplet:
+```sudo virsh undefine Droplet-<droplet_id>```
+
+Change droplet status to archive:
+```droplet-admin archive --email=DO_email@digitalocean.com <droplet_id> --force```
