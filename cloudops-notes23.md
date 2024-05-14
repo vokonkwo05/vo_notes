@@ -153,3 +153,11 @@ Undefine droplet:
 
 Change droplet status to archive:
 ```droplet-admin archive --email=DO_email@digitalocean.com <droplet_id> --force```
+
+### Provision a new storage node (run these commands after a PDU nap)
+
+first:
+```source env/production blr1```
+
+then:
+```st2 run digitalocean.provision hosts=SGH411NNN2 role=infra-storage-block-osd host_name=prod-data11-block03.blr1.internal.digitalocean.com train=test hpw_workflow_wait=false --async```
