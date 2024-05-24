@@ -26,6 +26,7 @@ Check for DDOS
 
 
 Kdump:
+This command is run in a jump server:
 ```$ ipmitool -I lanplus -U root -H $BMC_1P -P $IPMI_PASS chassis power diag```
 
 Reset BMC:
