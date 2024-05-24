@@ -26,7 +26,7 @@ Check for DDOS
 
 
 Kdump:
-```$ ipmitool -U root -I lanplus -H BMC_IP -P $PASS chassis power diag```
+```$ ipmitool -I lanplus -U root -H $BMC_1P -P $IPMI_PASS chassis power diag```
 
 Reset BMC:
 ``` # ipmitool mc reset cold```
@@ -161,3 +161,14 @@ first:
 
 then:
 ```st2 run digitalocean.provision hosts=SGH411NNN2 role=infra-storage-block-osd host_name=prod-data11-block03.blr1.internal.digitalocean.com train=test hpw_workflow_wait=false --async```
+
+### Commands to find errors in a server
+
+Run these commands when ssh'ed into the HV:
+
+```sudo dmesg -T --level=err```
+
+```sudo ipmitool sel elist | egrep $(date +‘%m/%d/%Y’)```
+
+Run as root for these:
+```cd /var/log && cat kern.log | grep error```
