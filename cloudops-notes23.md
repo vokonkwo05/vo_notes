@@ -60,7 +60,7 @@ If secure erase is not needed, you can remove from chef and delete from alpha:
 ## Migrations
 
 Migrate the top 10 droplets: 
-```/usr/local/bin/migrate droplet --safe $(ps -aux  --sort=-%cpu | grep qemu-system-x86_64 | grep Droplet- | cut -d = -f 2  | cut -d , -f 1 | cut -d - -f 2 | head -n 10 | xargs)```
+```/usr/local/bin/migrate droplet --safe --no-confirm $(ps -aux  --sort=-%cpu | grep qemu-system-x86_64 | grep Droplet- | cut -d = -f 2  | cut -d , -f 1 | cut -d - -f 2 | head -n 10 | xargs)```
 
 Check region stats: 
 ``` # migrate statistics nyc3```
