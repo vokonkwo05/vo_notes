@@ -133,6 +133,9 @@ Migrate all powered down Droplets:
 Migrate five of the largest disk images on the HV:
 ```/usr/local/bin/migrate droplet $(ls -lsh /var/lib/libvirt/images | sort -nrk1 | grep "raw" | grep -v "config" | head -5 | awk '{print $10}' |cut -d. -f1 | xargs)```
 
+Migrate droplets with an existing OPS ticket:
+```migrate evac $SERVER --emergency --fallback --jira $OPS-TICKET```
+
 ### Delete a droplet from a hypervisor
 
 Help page:
@@ -170,6 +173,8 @@ Run these commands when ssh'ed into the HV:
 ```sudo dmesg -T --level=err```
 
 ```sudo ipmitool sel elist | egrep $(date +‘%m/%d/%Y’)```
+
+```sudo dmesg -T|egrep 'err|crit|fail|raid'```
 
 Run as root for these:
 ```cd /var/log && cat kern.log | grep error```
