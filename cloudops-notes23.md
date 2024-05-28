@@ -173,3 +173,6 @@ Run these commands when ssh'ed into the HV:
 
 Run as root for these:
 ```cd /var/log && cat kern.log | grep error```
+
+### To remove files from a particular date
+```sudo find $Path_to_file -type f -name "*.gz" -newermt 2024-05-27 ! -newermt 2024-05-28 -exec rm {} \;```
