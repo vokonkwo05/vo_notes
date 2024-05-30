@@ -181,3 +181,22 @@ Run as root for these:
 
 ### To remove files from a particular date
 ```sudo find $Path_to_file -type f -name "*.gz" -newermt 2024-05-27 ! -newermt 2024-05-28 -exec rm {} \;```
+
+## Regex
+
+Comma seperated to space seperated:
+```echo "sfo3node905,sfo3node918,sfo3node912,sfo3node906,sfo3node916" | sed 's/,/ /g'```
+
+## Safety checks
+
+Confirm evac is completed:
+```L04P999PGY:ansible-playbooks vokonkwo$ ansible-playbook -i sfo3node905, check_evac_status.yaml```
+
+## OSD redeploy
+
+ssh into boxfrom jump; example: ```ssh prod-data08-object01.fra1.internal.digitalocean.com```
+
+Run dmesg to see where DCOPS attached disk: ```dmesg -T```
+
+ssh into the box (through jump) and become root, then run the command:
+```/opt/apps/storman/bin/storman deploy --osd=$OSD_NUMBER_ON_PG_ALERT --disk $PARTITION_WHERE_DISK_WAS_MOUNTED```
