@@ -199,4 +199,4 @@ ssh into boxfrom jump; example: ```ssh prod-data08-object01.fra1.internal.digita
 Run dmesg to see where DCOPS attached disk: ```dmesg -T```
 
 ssh into the box (through jump) and become root, then run the command:
-```/opt/apps/storman/bin/storman deploy --osd=$OSD_NUMBER_ON_PG_ALERT --disk $PARTITION_WHERE_DISK_WAS_MOUNTED```
+```/opt/apps/storman/bin/storman deploy --osd=$OSD_NUMBER_ON_PG_ALERT --disk $PARTITION_WHERE_DISK_WAS_MOUNTED_BY_DCOPS```
