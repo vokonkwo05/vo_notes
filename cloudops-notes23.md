@@ -29,6 +29,8 @@ Kdump:
 This command is run in a jump server:
 ```$ ipmitool -I lanplus -U root -H $BMC_1P -P $IPMI_PASS chassis power diag```
 
+power_cycle a node: ```$ ipmitool -I lanplus -U root -H $BMC_1P -P $IPMI_PASS chassis power cycle```
+
 Reset BMC:
 ``` # ipmitool mc reset cold```
 
