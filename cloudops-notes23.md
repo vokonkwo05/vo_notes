@@ -206,3 +206,7 @@ ssh into the box (through jump) and become root, then run the command:
 ## network_speed
 
 Check for cable flapping/down: ```sudo dmesg | grep eth```
+
+## seaworthy failures
+
+If a machine fails seaworthy with ```not ok - Run l3mpls-check-bird-sessions```, restart bird.service ```sudo systemctl restart bird.service```, then run ```sudo /usr/lib/l3mpls/checks/l3mpls-check-bird-sessions```, and then ```sudo l3mpls-diagnostics -s```
