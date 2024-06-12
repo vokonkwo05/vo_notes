@@ -138,6 +138,15 @@ Migrate five of the largest disk images on the HV:
 Migrate droplets with an existing OPS ticket:
 ```migrate evac $SERVER --emergency --fallback --jira $OPS-TICKET```
 
+## Migrate droplets with certain cpu usage
+
+Get droplets with certian CPU usage:
+```declare -A DROPLETS=$(sudo ps -eo "pcpu,etimes,command" --sort -pcpu,-etimes| grep qemu-system-x86_64 | grep -v grep | awk '{ print $6 }' | cut -d ',' -f 1 | cut -d '-' -f 2 | head -$HALF_VM_COUNT | tail -$QUARTER_VM_COUNT)```
+
+List out the droplets: ```echo $DROPLETS```
+
+Evac the droplets: ```migrate droplet -E --safe --no-fallback --no-confirm $DROPLETS```
+
 ### Delete a droplet from a hypervisor
 
 Help page:
