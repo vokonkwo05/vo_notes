@@ -31,8 +31,8 @@ This command is run in a jump server:
 
 power_cycle a node: ```$ ipmitool -I lanplus -U root -H $BMC_1P -P $IPMI_PASS chassis power cycle```
 
-Reset BMC:
-``` # ipmitool mc reset cold```
+Reset BMC (this can be done from jump and with droplets in the HV):
+``` ipmitool -U root -I lanplus -H $BMC_IP -P $IPMI_PASSWORD mc reset cold```
 
 Check temp:
 ```# ipmitool sdr elist | grep -i inl```
