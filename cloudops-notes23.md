@@ -198,6 +198,10 @@ Run as root for these:
 Comma seperated to space seperated:
 ```echo "sfo3node905,sfo3node918,sfo3node912,sfo3node906,sfo3node916" | sed 's/,/ /g'```
 
+Comma and space seperated to comma seperated: ```echo 'ams3node4124, ams3node4016, ams3node4215, ams3node4104, ams3node4130' | sed 's/, /,/g'```
+
+Comma and space seperated to space seperated: ```echo 'ams3node4124, ams3node4016, ams3node4215, ams3node4104, ams3node4099' | sed 's/, / /g'```
+
 ## Safety checks
 
 Confirm evac is completed:
