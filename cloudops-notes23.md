@@ -204,8 +204,10 @@ Comma and space seperated to space seperated: ```echo 'ams3node4124, ams3node401
 
 ## Safety checks
 
-Confirm evac is completed:
-```L04P999PGY:ansible-playbooks vokonkwo$ ansible-playbook -i sfo3node905, check_evac_status.yaml```
+Confirm evac is completed (in the ansible-playbook directory):
+```
+ansible-playbook -i sfo3node905, check_evac_status.yaml
+```
 
 ## OSD redeploy
 
