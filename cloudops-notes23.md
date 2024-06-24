@@ -1,5 +1,8 @@
 # CloudOps Notes 
 
+## Delete images in a HV seated in Live image
+
+Follow the link [here] (https://github.com/digitalocean/documentation/blob/master/oncall/playbooks/procedures/mount-software-raid.md) to delete images in a node in live
 ## hypervisor
 
 Get hypervisor info: 
