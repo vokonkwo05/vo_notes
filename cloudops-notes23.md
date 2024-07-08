@@ -45,10 +45,14 @@ Check temp:
 ## Repaves
 
 Check repave status: 
-``` # st2 run digitalocean.hms hosts=$SERVER```
+```
+st2 run digitalocean.hms hosts=$SERVER
+```
 
 Repave server:
-``` # st2 run --async digitalocean.provision hosts=$SERVER hpw_workflow_wait=false release=true train=test```
+```
+st2 run --async digitalocean.provision hosts=$SERVER release=true train=test
+```
 
 
 ## Sunset
