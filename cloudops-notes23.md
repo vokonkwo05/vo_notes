@@ -216,6 +216,19 @@ Confirm evac is completed (in the ansible-playbook directory):
 ansible-playbook -i $SERVER, check_evac_status.yaml
 ```
 
+## osd_down_and_in
+```
+/opt/apps/storman/bin/storman remove --osd=<osd_number>
+```
+
+```
+ceph osd destroy osd.<osd_number>
+```
+
+```
+ceph osd tree down
+```
+
 ## OSD redeploy
 
 ssh into boxfrom jump; example: ```ssh prod-data08-object01.fra1.internal.digitalocean.com```
