@@ -173,7 +173,7 @@ Destroy droplet:
 Undefine droplet:
 ```sudo virsh undefine Droplet-<droplet_id>```
 
-Change droplet status to archive:
+Change droplet status to archive (THIS COMMAND WILL REMOVE THE DROPLET REGARDLESS OF WHERE IT RUNNING. NEVER RUN THIS COMMAND WITHOUT A TIER 2):
 ```droplet-admin archive --email=DO_email@digitalocean.com <droplet_id> --force```
 
 ### Provision a new storage node (run these commands after a PDU nap)
