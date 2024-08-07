@@ -221,7 +221,7 @@ ansible-playbook -i $SERVER, check_evac_status.yaml
 /opt/apps/storman/bin/storman remove --osd=<osd_number>
 ```
 
-```
+```shell
 ceph osd destroy osd.<osd_number>
 ```
 
