@@ -252,6 +252,6 @@ I had mysql 9.0.1 locally but was not able to connect to alpha because ```Authen
 
 For compilers to find mysql-client@8.4 you may need to set:
 ```
-  export LDFLAGS="-L/opt/homebrew/opt/mysql-client@8.4/lib"
-  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client@8.4/include"
+export LDFLAGS="-L/opt/homebrew/opt/mysql-client@8.4/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/mysql-client@8.4/include"
 ```
