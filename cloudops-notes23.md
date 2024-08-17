@@ -245,3 +245,13 @@ Check for cable flapping/down: ```sudo dmesg | grep eth```
 ## seaworthy failures
 
 If a machine fails seaworthy with ```not ok - Run l3mpls-check-bird-sessions```, restart bird.service ```sudo systemctl restart bird.service```, then run ```sudo /usr/lib/l3mpls/checks/l3mpls-check-bird-sessions```, and then ```sudo l3mpls-diagnostics -s```
+
+## mysql forward compartibility
+
+I had mysql 9.0.1 locally but was not able to connect to alpha because ```Authentication plugin 'mysql_native_password' cannot be loaded```. Had to downgrade to version 8.4. I added mysql-client@8.4 to my PATH using ```echo 'export PATH="/opt/homebrew/opt/mysql-client@8.4/bin:$PATH"' >> /Users/vokonkwo/.bash_profile```.
+
+For compilers to find mysql-client@8.4 you may need to set:
+```
+  export LDFLAGS="-L/opt/homebrew/opt/mysql-client@8.4/lib"
+  export CPPFLAGS="-I/opt/homebrew/opt/mysql-client@8.4/include"
+```
